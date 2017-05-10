@@ -1,0 +1,25 @@
+{
+  "name": "nest-cqrs-example",
+  "version": "1.0.0",
+  "description": "Nest CQRS example",
+  "license": "MIT",
+  "scripts": {
+    "start:live": "nodemon -e ts --watch index.js",
+    "prestart": "tsc -p tsconfig.json",
+    "start": "node dist/server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "color-cli": "^0.1.0",
+    "nest-cqrs": "^1.0.8",
+    "nest.js": "*",
+    "rxjs": "^5.3.1",
+    "typescript": "^2.2.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.0.35",
+    "@types/node": "^7.0.5",
+    "nodemon": "^1.11.0",
+    "ts-node": "^2.1.0"
+  }
+}
