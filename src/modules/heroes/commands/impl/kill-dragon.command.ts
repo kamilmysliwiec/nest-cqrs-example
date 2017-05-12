@@ -1,4 +1,4 @@
-import { ICommand } from 'nest-cqrs';
+import { ICommand } from '@nestjs/cqrs';
 
 export class KillDragonCommand implements ICommand {
     constructor(

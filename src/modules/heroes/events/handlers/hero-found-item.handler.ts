@@ -1,9 +1,9 @@
-import { Component } from 'nest.js';
-import { IEventHandler } from 'nest-cqrs';
+import { IEventHandler, EventsHandler } from '@nestjs/cqrs';
 import { HeroFoundItemEvent } from '../impl/hero-found-item.event';
+
 const clc = require('cli-color');
 
-@Component()
+@EventsHandler(HeroFoundItemEvent)
 export class HeroFoundItemHandler implements IEventHandler<HeroFoundItemEvent> {
     handle(event: HeroFoundItemEvent) {
         console.log(clc.yellowBright('Async HeroFoundItemEvent...'));

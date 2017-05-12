@@ -1,4 +1,4 @@
-import { IEvent } from 'nest-cqrs';
+import { IEvent } from '@nestjs/cqrs';
 
 export class HeroFoundItemEvent implements IEvent {
     constructor(

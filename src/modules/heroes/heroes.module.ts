@@ -1,5 +1,5 @@
 import { Module, OnModuleInit } from 'nest.js';
-import { CommandBus, EventBus, EventPublisher } from 'nest-cqrs';
+import { CommandBus, EventBus, EventPublisher } from '@nestjs/cqrs';
 import { CommandHandlers } from './commands/handlers';
 import { EventHandlers } from './events/handlers';
 import { HeroesGameSagas } from './sagas/heroes.sagas';
@@ -30,7 +30,7 @@ export class HeroesGameModule implements OnModuleInit {
         this.event$.register(EventHandlers);
         this.command$.register(CommandHandlers);
         this.event$.combineSagas([
-            this.heroesGameSagas.dragonKilled
+            this.heroesGameSagas.dragonKilled,
         ]);
     }
 }

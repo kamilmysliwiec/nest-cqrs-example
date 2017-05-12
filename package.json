@@ -1,7 +1,7 @@
 {
   "name": "nest-cqrs-example",
   "version": "1.0.0",
-  "description": "Nest CQRS example",
+  "description": "Nest CQRS module usage example",
   "license": "MIT",
   "scripts": {
     "start:live": "nodemon -e ts --watch index.js",
@@ -9,9 +9,9 @@
     "start": "node dist/server.js"
   },
   "dependencies": {
+    "@nestjs/cqrs": "^1.0.1",
     "body-parser": "^1.17.1",
     "color-cli": "^0.1.0",
-    "nest-cqrs": "^1.0.8",
     "nest.js": "*",
     "rxjs": "^5.3.1",
     "typescript": "^2.2.1"

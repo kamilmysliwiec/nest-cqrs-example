@@ -1,5 +1,5 @@
 import { Component } from 'nest.js';
-import { CommandBus } from 'nest-cqrs';
+import { CommandBus } from '@nestjs/cqrs';
 import { KillDragonDto } from './interfaces/kill-dragon-dto.interface';
 import { KillDragonCommand } from './commands/impl/kill-dragon.command';
 
