@@ -1,4 +1,4 @@
-import { Component } from 'nest.js';
+import { Component } from '@nestjs/common';
 import { Observable } from 'rxjs/Observable';
 import { ICommand, EventObservable } from '@nestjs/cqrs';
 import { HeroKilledDragonEvent } from '../events/impl/hero-killed-dragon.event';

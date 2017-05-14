@@ -1,7 +1,7 @@
 import './vendor';
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
-import { NestFactory } from 'nest.js';
+import { NestFactory } from '@nestjs/core';
 import { ApplicationModule } from './modules/app.module';
 
 const instance = express();

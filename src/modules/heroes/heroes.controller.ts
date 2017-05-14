@@ -1,4 +1,4 @@
-import { Controller, Post, Response, Body, HttpStatus, Param } from 'nest.js';
+import { Controller, Post, Response, Body, HttpStatus, Param } from '@nestjs/common';
 import { KillDragonDto } from './interfaces/kill-dragon-dto.interface';
 import { HeroesGameService } from './heroes.service';
 

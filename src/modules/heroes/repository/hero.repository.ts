@@ -1,7 +1,7 @@
-import { Component } from 'nest.js';
+import { Component } from '@nestjs/common';
 import { Hero } from '../models/hero.model';
 
-const fakeUser = new Hero('0');
+const fakeUser = new Hero('1234');
 
 @Component()
 export class HeroRepository {
