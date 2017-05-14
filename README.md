@@ -13,3 +13,8 @@ $ npm install
 ```
 $ npm run start
 ```
+
+## People
+
+- Author - [Kamil Myśliwiec](http://kamilmysliwiec.com)
+- Website - [http://nestjs.com](http://nestjs.com/)
