@@ -16,6 +16,7 @@
     "@nestjs/websockets": "~2.*",
     "body-parser": "^1.17.1",
     "color-cli": "^0.1.0",
+    "redis": "^2.7.1",
     "reflect-metadata": "^0.1.10",
     "rxjs": "^5.3.1",
     "typescript": "^2.2.1"
