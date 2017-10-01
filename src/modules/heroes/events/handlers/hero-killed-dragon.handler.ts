@@ -5,7 +5,7 @@ const clc = require('cli-color');
 
 @EventsHandler(HeroKilledDragonEvent)
 export class HeroKilledDragonHandler implements IEventHandler<HeroKilledDragonEvent> {
-    handle(event: HeroKilledDragonEvent) {
-        console.log(clc.greenBright('HeroKilledDragonEvent...'));
-    }
+  handle(event: HeroKilledDragonEvent) {
+    console.log(clc.greenBright('HeroKilledDragonEvent...'));
+  }
 }

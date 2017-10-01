@@ -9,31 +9,30 @@ import { OnModuleInit, Module } from '@nestjs/common';
 import { ModuleRef } from '@nestjs/core';
 
 @Module({
-    modules: [ CQRSModule ],
-    controllers: [ HeroesGameController ],
-    components: [
-        HeroesGameService,
-        HeroesGameSagas,
-        ...CommandHandlers,
-        ...EventHandlers,
-        HeroRepository
-    ]
+  modules: [CQRSModule],
+  controllers: [HeroesGameController],
+  components: [
+    HeroesGameService,
+    HeroesGameSagas,
+    ...CommandHandlers,
+    ...EventHandlers,
+    HeroRepository,
+  ],
 })
 export class HeroesGameModule implements OnModuleInit {
-    constructor(
-        private readonly moduleRef: ModuleRef,
-        private readonly command$: CommandBus,
-        private readonly event$: EventBus,
-        private readonly heroesGameSagas: HeroesGameSagas) {}
+  constructor(
+    private readonly moduleRef: ModuleRef,
+    private readonly command$: CommandBus,
+    private readonly event$: EventBus,
+    private readonly heroesGameSagas: HeroesGameSagas,
+  ) {}
 
-    onModuleInit() {
-        this.command$.setModuleRef(this.moduleRef);
-        this.event$.setModuleRef(this.moduleRef);
+  onModuleInit() {
+    this.command$.setModuleRef(this.moduleRef);
+    this.event$.setModuleRef(this.moduleRef);
 
-        this.event$.register(EventHandlers);
-        this.command$.register(CommandHandlers);
-        this.event$.combineSagas([
-            this.heroesGameSagas.dragonKilled,
-        ]);
-    }
+    this.event$.register(EventHandlers);
+    this.command$.register(CommandHandlers);
+    this.event$.combineSagas([this.heroesGameSagas.dragonKilled]);
+  }
 }

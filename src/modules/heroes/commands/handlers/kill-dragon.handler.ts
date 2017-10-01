@@ -6,18 +6,20 @@ const clc = require('cli-color');
 
 @CommandHandler(KillDragonCommand)
 export class KillDragonHandler implements ICommandHandler<KillDragonCommand> {
-    constructor(
-        private readonly repository: HeroRepository,
-        private readonly publisher: EventPublisher) {}
+  constructor(
+    private readonly repository: HeroRepository,
+    private readonly publisher: EventPublisher,
+  ) {}
 
-    execute(command: KillDragonCommand, resolve: (value?) => void) {
-        console.log(clc.greenBright('KillDragonCommand...'));
+  async execute(command: KillDragonCommand, resolve: (value?) => void) {
+    console.log(clc.greenBright('KillDragonCommand...'));
 
-        const { heroId, dragonId } = command;
-        const hero = this.publisher.mergeObjectContext(
-            this.repository.findOneById(+heroId)
-        );
-        hero.killEnemy(dragonId);
-        resolve();
-    }
+    const { heroId, dragonId } = command;
+    const hero = this.publisher.mergeObjectContext(
+      await this.repository.findOneById(+heroId),
+    );
+    hero.killEnemy(dragonId);
+    hero.commit();
+    resolve();
+  }
 }

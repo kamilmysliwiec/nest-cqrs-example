@@ -5,7 +5,7 @@ const clc = require('cli-color');
 
 @EventsHandler(HeroFoundItemEvent)
 export class HeroFoundItemHandler implements IEventHandler<HeroFoundItemEvent> {
-    handle(event: HeroFoundItemEvent) {
-        console.log(clc.yellowBright('Async HeroFoundItemEvent...'));
-    }
+  handle(event: HeroFoundItemEvent) {
+    console.log(clc.yellowBright('Async HeroFoundItemEvent...'));
+  }
 }

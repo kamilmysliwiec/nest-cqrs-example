@@ -6,18 +6,20 @@ const clc = require('cli-color');
 
 @CommandHandler(DropAncientItemCommand)
 export class DropAncientItemHandler implements ICommandHandler<DropAncientItemCommand> {
-    constructor(
-        private readonly repository: HeroRepository,
-        private readonly publisher: EventPublisher) {}
+  constructor(
+    private readonly repository: HeroRepository,
+    private readonly publisher: EventPublisher,
+  ) {}
 
-    execute(command: DropAncientItemCommand, resolve: (value?) => void) {
-        console.log(clc.yellowBright('Async DropAncientItemCommand...'));
+  async execute(command: DropAncientItemCommand, resolve: (value?) => void) {
+    console.log(clc.yellowBright('Async DropAncientItemCommand...'));
 
-        const { heroId, itemId } = command;
-        const hero = this.publisher.mergeObjectContext(
-            this.repository.findOneById(+heroId)
-        );
-        hero.addItem(itemId);
-        resolve();
-    }
+    const { heroId, itemId } = command;
+    const hero = this.publisher.mergeObjectContext(
+      await this.repository.findOneById(+heroId),
+    );
+    hero.addItem(itemId);
+    hero.commit();
+    resolve();
+  }
 }

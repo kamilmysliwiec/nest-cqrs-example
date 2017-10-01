@@ -1,3 +1,3 @@
 export interface KillDragonDto {
-    dragonId: string;
+  dragonId: string;
 }

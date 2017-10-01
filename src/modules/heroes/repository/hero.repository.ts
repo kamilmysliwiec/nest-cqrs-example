@@ -1,11 +1,10 @@
 import { Component } from '@nestjs/common';
 import { Hero } from '../models/hero.model';
-
-const fakeUser = new Hero('1234');
+import { userHero } from './fixtures/user';
 
 @Component()
 export class HeroRepository {
-    findOneById(id: number): Hero {
-        return fakeUser;
-    }
+  async findOneById(id: number): Promise<Hero> {
+    return userHero;
+  }
 }
