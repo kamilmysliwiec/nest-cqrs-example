@@ -16,5 +16,5 @@ $ npm run start
 
 ## People
 
-- Author - [Kamil Myśliwiec](http://kamilmysliwiec.com)
-- Website - [http://nestjs.com](http://nestjs.com/)
+- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
+- Website - [https://nestjs.com](https://nestjs.com/)
