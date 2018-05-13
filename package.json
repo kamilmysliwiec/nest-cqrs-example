@@ -4,27 +4,22 @@
   "description": "Nest CQRS module usage example",
   "license": "MIT",
   "scripts": {
-    "start:live": "nodemon -e ts --watch index.js",
-    "prestart": "tsc -p tsconfig.json",
-    "start": "node dist/server.js"
+    "start": "ts-node src/main.ts"
   },
   "dependencies": {
-    "@nestjs/common": "^4.0.2",
-    "@nestjs/core": "^4.0.2",
-    "@nestjs/cqrs": "^4.0.1",
-    "@nestjs/microservices": "^4.0.2",
-    "@nestjs/websockets": "^4.0.2",
-    "body-parser": "^1.17.1",
-    "color-cli": "^0.1.0",
-    "redis": "^2.7.1",
-    "reflect-metadata": "^0.1.10",
-    "rxjs": "^5.4.3",
-    "typescript": "^2.5.3"
+    "@nestjs/common": "^5.0.0",
+    "@nestjs/core": "^5.0.0",
+    "@nestjs/cqrs": "^5.0.1",
+    "cli-color": "^1.2.0",
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "^6.1.0"
   },
   "devDependencies": {
     "@types/express": "^4.0.35",
     "@types/node": "^8.0.31",
     "nodemon": "^1.12.1",
-    "ts-node": "^3.3.0"
+    "prettier": "^1.12.1",
+    "ts-node": "^6.0.3",
+    "typescript": "^2.8.3"
   }
 }

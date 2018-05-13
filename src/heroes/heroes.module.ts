@@ -9,9 +9,9 @@ import { OnModuleInit, Module } from '@nestjs/common';
 import { ModuleRef } from '@nestjs/core';
 
 @Module({
-  modules: [CQRSModule],
+  imports: [CQRSModule],
   controllers: [HeroesGameController],
-  components: [
+  providers: [
     HeroesGameService,
     HeroesGameSagas,
     ...CommandHandlers,

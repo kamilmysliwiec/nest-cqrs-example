@@ -1,8 +1,7 @@
+import * as clc from 'cli-color';
 import { EventPublisher, ICommandHandler, CommandHandler } from '@nestjs/cqrs';
 import { KillDragonCommand } from '../impl/kill-dragon.command';
 import { HeroRepository } from '../../repository/hero.repository';
-
-const clc = require('cli-color');
 
 @CommandHandler(KillDragonCommand)
 export class KillDragonHandler implements ICommandHandler<KillDragonCommand> {

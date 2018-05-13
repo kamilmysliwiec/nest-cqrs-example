@@ -1,9 +1,9 @@
-import { Component } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
 import { KillDragonDto } from './interfaces/kill-dragon-dto.interface';
 import { KillDragonCommand } from './commands/impl/kill-dragon.command';
 
-@Component()
+@Injectable()
 export class HeroesGameService {
   constructor(private readonly commandBus: CommandBus) {}
 
