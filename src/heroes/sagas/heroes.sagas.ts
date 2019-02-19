@@ -1,19 +1,20 @@
-import * as clc from 'cli-color';
 import { Injectable } from '@nestjs/common';
+import { ICommand, ofType, Saga } from '@nestjs/cqrs';
+import * as clc from 'cli-color';
 import { Observable } from 'rxjs';
-import { ICommand, EventObservable } from '@nestjs/cqrs';
-import { HeroKilledDragonEvent } from '../events/impl/hero-killed-dragon.event';
-import { DropAncientItemCommand } from '../commands/impl/drop-ancient-item.command';
 import { delay, map } from 'rxjs/operators';
+import { DropAncientItemCommand } from '../commands/impl/drop-ancient-item.command';
+import { HeroKilledDragonEvent } from '../events/impl/hero-killed-dragon.event';
 
 const itemId = '0';
 
 @Injectable()
 export class HeroesGameSagas {
-  dragonKilled = (events$: EventObservable<any>): Observable<ICommand> => {
+  @Saga()
+  dragonKilled = (events$: Observable<any>): Observable<ICommand> => {
     return events$
-      .ofType(HeroKilledDragonEvent)
       .pipe(
+        ofType(HeroKilledDragonEvent),
         delay(1000),
         map(event => {
           console.log(clc.redBright('Inside [HeroesGameSagas] Saga'));

@@ -7,4 +7,8 @@ export class HeroRepository {
   async findOneById(id: number): Promise<Hero> {
     return userHero;
   }
+
+  async findAll(): Promise<Hero[]> {
+    return [userHero];
+  }
 }
