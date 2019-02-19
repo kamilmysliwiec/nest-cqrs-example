@@ -1,5 +1,3 @@
-import { ICommand } from '@nestjs/cqrs';
-
-export class DropAncientItemCommand implements ICommand {
+export class DropAncientItemCommand {
   constructor(public readonly heroId: string, public readonly itemId: string) {}
 }
