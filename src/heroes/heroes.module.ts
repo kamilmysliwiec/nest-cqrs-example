@@ -9,14 +9,7 @@ import { HeroRepository } from './repository/hero.repository';
 import { HeroesGameSagas } from './sagas/heroes.sagas';
 
 @Module({
-  imports: [
-    CqrsModule.forFeature({
-      commands: CommandHandlers,
-      events: EventHandlers,
-      sagas: [HeroesGameSagas],
-      queries: QueryHandlers,
-    }),
-  ],
+  imports: [CqrsModule],
   controllers: [HeroesGameController],
   providers: [
     HeroesGameService,
