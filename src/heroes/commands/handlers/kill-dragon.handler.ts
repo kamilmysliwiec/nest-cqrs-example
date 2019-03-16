@@ -1,7 +1,7 @@
+import { CommandHandler, EventPublisher, ICommandHandler } from '@nestjs/cqrs';
 import * as clc from 'cli-color';
-import { EventPublisher, ICommandHandler, CommandHandler } from '@nestjs/cqrs';
-import { KillDragonCommand } from '../impl/kill-dragon.command';
 import { HeroRepository } from '../../repository/hero.repository';
+import { KillDragonCommand } from '../impl/kill-dragon.command';
 
 @CommandHandler(KillDragonCommand)
 export class KillDragonHandler implements ICommandHandler<KillDragonCommand> {
@@ -10,7 +10,7 @@ export class KillDragonHandler implements ICommandHandler<KillDragonCommand> {
     private readonly publisher: EventPublisher,
   ) {}
 
-  async execute(command: KillDragonCommand, resolve: (value?) => void) {
+  async execute(command: KillDragonCommand) {
     console.log(clc.greenBright('KillDragonCommand...'));
 
     const { heroId, dragonId } = command;
@@ -19,6 +19,5 @@ export class KillDragonHandler implements ICommandHandler<KillDragonCommand> {
     );
     hero.killEnemy(dragonId);
     hero.commit();
-    resolve();
   }
 }

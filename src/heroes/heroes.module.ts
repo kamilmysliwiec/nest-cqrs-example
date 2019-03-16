@@ -1,38 +1,23 @@
-import { CommandBus, EventBus, CQRSModule } from '@nestjs/cqrs';
+import { Module } from '@nestjs/common';
+import { CqrsModule } from '@nestjs/cqrs';
 import { CommandHandlers } from './commands/handlers';
 import { EventHandlers } from './events/handlers';
-import { HeroesGameSagas } from './sagas/heroes.sagas';
 import { HeroesGameController } from './heroes.controller';
 import { HeroesGameService } from './heroes.service';
+import { QueryHandlers } from './queries/handlers';
 import { HeroRepository } from './repository/hero.repository';
-import { OnModuleInit, Module } from '@nestjs/common';
-import { ModuleRef } from '@nestjs/core';
+import { HeroesGameSagas } from './sagas/heroes.sagas';
 
 @Module({
-  imports: [CQRSModule],
+  imports: [CqrsModule],
   controllers: [HeroesGameController],
   providers: [
     HeroesGameService,
-    HeroesGameSagas,
+    HeroRepository,
     ...CommandHandlers,
     ...EventHandlers,
-    HeroRepository,
+    ...QueryHandlers,
+    HeroesGameSagas,
   ],
 })
-export class HeroesGameModule implements OnModuleInit {
-  constructor(
-    private readonly moduleRef: ModuleRef,
-    private readonly command$: CommandBus,
-    private readonly event$: EventBus,
-    private readonly heroesGameSagas: HeroesGameSagas,
-  ) {}
-
-  onModuleInit() {
-    this.command$.setModuleRef(this.moduleRef);
-    this.event$.setModuleRef(this.moduleRef);
-
-    this.event$.register(EventHandlers);
-    this.command$.register(CommandHandlers);
-    this.event$.combineSagas([this.heroesGameSagas.dragonKilled]);
-  }
-}
+export class HeroesGameModule {}

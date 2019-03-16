@@ -1,7 +1,7 @@
+import { CommandHandler, EventPublisher, ICommandHandler } from '@nestjs/cqrs';
 import * as clc from 'cli-color';
-import { EventPublisher, ICommandHandler, CommandHandler } from '@nestjs/cqrs';
-import { DropAncientItemCommand } from '../impl/drop-ancient-item.command';
 import { HeroRepository } from '../../repository/hero.repository';
+import { DropAncientItemCommand } from '../impl/drop-ancient-item.command';
 
 @CommandHandler(DropAncientItemCommand)
 export class DropAncientItemHandler
@@ -11,7 +11,7 @@ export class DropAncientItemHandler
     private readonly publisher: EventPublisher,
   ) {}
 
-  async execute(command: DropAncientItemCommand, resolve: (value?) => void) {
+  async execute(command: DropAncientItemCommand) {
     console.log(clc.yellowBright('Async DropAncientItemCommand...'));
 
     const { heroId, itemId } = command;
@@ -20,6 +20,5 @@ export class DropAncientItemHandler
     );
     hero.addItem(itemId);
     hero.commit();
-    resolve();
   }
 }
