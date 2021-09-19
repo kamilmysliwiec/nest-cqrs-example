@@ -1,5 +1,4 @@
-import { IEventHandler } from '@nestjs/cqrs';
-import { EventsHandler } from '@nestjs/cqrs/dist/decorators/events-handler.decorator';
+import { EventsHandler, IEventHandler } from '@nestjs/cqrs';
 import * as clc from 'cli-color';
 import { HeroKilledDragonEvent } from '../impl/hero-killed-dragon.event';
 
