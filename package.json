@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Nest CQRS module usage example",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "start": "nest start --watch"
   },

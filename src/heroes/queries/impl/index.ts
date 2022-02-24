@@ -1,1 +1,1 @@
-export * from './get-heroes.query';
+export * from './get-heroes.query.js';

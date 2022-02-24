@@ -1,7 +1,7 @@
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 import * as clc from 'cli-color';
-import { HeroRepository } from '../../repository/hero.repository';
-import { GetHeroesQuery } from '../impl';
+import { HeroRepository } from '../../repository/hero.repository.js';
+import { GetHeroesQuery } from '../impl/index.js';
 
 @QueryHandler(GetHeroesQuery)
 export class GetHeroesHandler implements IQueryHandler<GetHeroesQuery> {
