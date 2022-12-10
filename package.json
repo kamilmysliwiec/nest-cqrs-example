@@ -10,7 +10,7 @@
     "@nestjs/common": "^8.0.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/cqrs": "^8.0.0",
-    "@nestjs/platform-express": "^8.0.0",
+    "@nestjs/platform-express": "^8.4.7",
     "cli-color": "^2.0.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0"
